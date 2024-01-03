@@ -1,0 +1,113 @@
+.include TSMC_180nm.txt
+.include "AND.sub"
+.include "XNOR.sub"
+.include "OR.sub"
+.include "NOT.sub"
+
+.param SUPPLY = 1.8
+.param LAMBDA = 0.18u
+
+.param wn1 = {10*LAMBDA}
+.param wn2 = {10*LAMBDA}
+.param ln1 = {2*LAMBDA}
+.param ln2 = {2*LAMBDA}
+
+.param wp1 = wn1
+.param wp2 = wn1
+.param lp1 = {LAMBDA}
+.param lp2 = {LAMBDA}
+
+.global gnd
+
+Vdd node_x gnd 'SUPPLY'
+
+V_in_a0 node_a0 gnd PULSE(0 1.8 0ns 100ps 100ps 20ns 40ns)
+V_in_a1 node_a1 gnd PULSE(0 1.8 0ns 100ps 100ps 30ns 50ns)
+V_in_a2 node_a2 gnd PULSE(0 1.8 0ns 100ps 100ps 40ns 60ns)
+V_in_a3 node_a3 gnd PULSE(0 1.8 0ns 100ps 100ps 50ns 70ns)
+
+V_in_b0 node_b0 gnd PULSE(0 1.8 0ns 100ps 100ps 30ns 40ns)
+V_in_b1 node_b1 gnd PULSE(0 1.8 0ns 100ps 100ps 50ns 70ns)
+V_in_b2 node_b2 gnd PULSE(0 1.8 0ns 100ps 100ps 20ns 60ns)
+V_in_b3 node_b3 gnd PULSE(0 1.8 0ns 100ps 100ps 40ns 50ns)
+
+X1 node_a0 node_b0 node_c0 node_x gnd XNOR
+X2 node_a1 node_b1 node_c1 node_x gnd XNOR
+X3 node_a2 node_b2 node_c2 node_x gnd XNOR
+X4 node_a3 node_b3 node_c3 node_x gnd XNOR
+
+X5 node_c0 node_c1 node_d node_x gnd AND
+X6 node_d node_c2 node_e node_x gnd AND
+X7 node_e node_c3 node_equal node_x gnd AND
+
+X8 node_b3 node_b3c node_x gnd NOT
+X9 node_b3c node_a3 node_p node_x gnd AND
+
+X10 node_b2 node_b2c node_x gnd NOT
+X11 node_b2c node_a2 node_f node_x gnd AND
+X12 node_f node_c3 node_q node_x gnd AND
+
+X13 node_b1 node_b1c node_x gnd NOT
+X14 node_b1c node_a1 node_g node_x gnd AND
+X15 node_g node_c3 node_h node_x gnd AND
+X16 node_h node_c2 node_r node_x gnd AND
+
+X17 node_b0 node_b0c node_x gnd NOT
+X18 node_b0c node_a0 node_i node_x gnd AND
+X19 node_i node_c3 node_j node_x gnd AND
+X20 node_j node_c2 node_k node_x gnd AND
+X21 node_k node_c1 node_s node_x gnd AND
+
+X22 node_p node_q node_l node_x gnd OR
+X23 node_l node_r node_m node_x gnd OR
+X24 node_m node_s node_ab node_x gnd OR
+
+
+X25 node_a3 node_a3c node_x gnd NOT
+X26 node_a3c node_b3 node_w node_x gnd AND
+
+X27 node_a2 node_a2c node_x gnd NOT
+X28 node_a2c node_b2 node_1 node_x gnd AND
+X29 node_1 node_c3 node_x0 node_x gnd AND
+
+X30 node_a1 node_a1c node_x gnd NOT
+X31 node_a1c node_b1 node_2 node_x gnd AND
+X32 node_2 node_c3 node_3 node_x gnd AND
+X33 node_3 node_c2 node_y node_x gnd AND
+
+X34 node_a0 node_a0c node_x gnd NOT
+X35 node_a0c node_b0 node_4 node_x gnd AND
+X36 node_4 node_c3 node_5 node_x gnd AND
+X37 node_5 node_c2 node_6 node_x gnd AND
+X38 node_6 node_c1 node_z node_x gnd AND
+
+X39 node_x0 node_y node_7 node_x gnd OR
+X40 node_7 node_z node_8 node_x gnd OR
+X41 node_8 node_w node_ba node_x gnd OR
+
+
+
+
+C1 node_equal gnd 100f
+C2 node_ab gnd 100f
+C3 node_ba gnd 100f
+
+
+
+
+.tran 1n 800n
+
+
+.control
+run
+set color0 = rgb:f/f/e
+set color1 = white
+plot v(node_a0) v(node_a1)+2 v(node_a2)+4 v(node_a3)+6
+run
+plot v(node_b0) v(node_b1)+2 v(node_b2)+4 v(node_b3)+6
+run
+plot v(node_equal) v(node_ab)+2 v(node_ba)+4 
+* hardcopy image.ps v(node_a) v(node_b)+2 v(node_out)+4
+.end
+.endc
+

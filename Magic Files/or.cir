@@ -1,0 +1,63 @@
+* SPICE3 file created from or.ext - technology: scmos
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+.param width_P = 8*LAMBDA
+.param width_N = 4*LAMBDA
+.global gnd vdd
+.option scale=0.09u
+
+Vdd vdd gnd 1.8
+va a gnd pulse 0 1.8 0ns 100ps 100ps 20ns 60ns
+vb b gnd pulse 0 1.8 0ns 100ps 100ps 60ns 100ns
+
+
+M1000 a_n15_32# a gnd Gnd CMOSN w=16 l=5
++  ad=304 pd=70 as=1072 ps=230
+M1001 y a_n15_32# vdd vdd CMOSP w=16 l=6
++  ad=288 pd=68 as=656 ps=146
+M1002 gnd b a_n15_32# Gnd CMOSN w=16 l=5
++  ad=0 pd=0 as=0 ps=0
+M1003 a_n15_32# b a_n15_107# vdd CMOSP w=16 l=5
++  ad=448 pd=88 as=304 ps=70
+M1004 y a_n15_32# gnd Gnd CMOSN w=16 l=6
++  ad=320 pd=72 as=0 ps=0
+M1005 a_n15_107# a vdd vdd CMOSP w=16 l=5
++  ad=0 pd=0 as=0 ps=0
+C0 y vdd 0.02fF
+C1 a_n15_32# vdd 0.13fF
+C2 a_n15_32# vdd 0.05fF
+C3 b vdd 0.12fF
+C4 vdd vdd 0.05fF
+C5 vdd a 0.12fF
+C6 a_n15_32# b 0.19fF
+C7 vdd vdd 0.05fF
+C8 gnd Gnd 0.78fF
+C9 y Gnd 0.28fF
+C10 a_n15_32# Gnd 0.17fF
+C11 b Gnd 0.32fF
+C12 a Gnd 0.62fF
+C13 vdd Gnd 0.67fF
+C14 vdd Gnd 1.55fF
+C15 vdd Gnd 2.56fF
+
+.tran 0.1n 500n
+
+.measure tran trise
++ TRIG v(a) VAL = 0.9 RISE = 1
++ TARG v(out) VAL = 0.9 FALL = 1
+
+.measure tran tfall
++ TRIG v(a) VAL = 0.9 FALL = 1
++ TARG v(out) VAL = 0.9 RISE = 1
+
+.measure tran tpd param = '(trise + tfall)/2' goal = 0
+
+.control
+run
+plot  v(a) v(b)+2 v(y)+4 
+.endc
+
+.end
+
+

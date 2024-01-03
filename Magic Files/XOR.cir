@@ -1,0 +1,78 @@
+* SPICE3 file created from XOR.ext - technology: scmos
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+.param width_P = 8*LAMBDA
+.param width_N = 4*LAMBDA
+.global gnd vdd
+.option scale=0.09u
+
+Vdd vdd gnd 1.8
+va a gnd pulse 0 1.8 0ns 100ps 100ps 60ns 100ns
+vb b gnd pulse 0 1.8 0ns 100ps 100ps 20ns 60ns
+
+
+M1000 out b abar Gnd CMOSN w=11 l=6
++  ad=330 pd=104 as=407 ps=118
+M1001 bbar b gnd Gnd CMOSN w=22 l=4
++  ad=242 pd=66 as=836 ps=164
+M1002 out bbar abar vdd CMOSP w=12 l=6
++  ad=180 pd=76 as=218 ps=84
+M1003 vdd b bbar vdd CMOSP w=10 l=4
++  ad=100 pd=60 as=110 ps=42
+M1004 out b a vdd CMOSP w=8 l=6
++  ad=0 pd=0 as=72 ps=34
+M1005 abar a gnd Gnd CMOSN w=22 l=4
++  ad=0 pd=0 as=0 ps=0
+M1006 vdd a abar vdd CMOSP w=10 l=4
++  ad=0 pd=0 as=0 ps=0
+M1007 out bbar a Gnd CMOSN w=11 l=6
++  ad=0 pd=0 as=165 ps=52
+C0 vdd bbar 0.03fF
+C1 vdd vdd 0.02fF
+C2 bbar b 0.02fF
+C3 gnd b 0.15fF
+C4 abar vdd 0.02fF
+C5 abar a 0.13fF
+C6 vdd b 0.11fF
+C7 vdd a 0.02fF
+C8 bbar vdd 0.13fF
+C9 vdd out 0.02fF
+C10 abar b 0.12fF
+C11 vdd abar 0.03fF
+C12 vdd b 0.13fF
+C13 vdd out 0.04fF
+C14 vdd a 0.11fF
+C15 vdd vdd 0.02fF
+C16 gnd Gnd 0.25fF
+C17 abar Gnd 0.11fF
+C18 bbar Gnd 0.06fF
+C19 out Gnd 0.23fF
+C20 b Gnd 0.59fF
+C21 vdd Gnd 0.24fF
+C22 a Gnd 2.30fF
+C23 vdd Gnd 0.87fF
+C24 vdd Gnd 0.75fF
+C25 vdd Gnd 0.75fF
+C26 vdd Gnd 0.72fF
+
+.tran 0.1n 500n
+
+* .measure tran trise
+* + TRIG v(a) VAL = 0.9 RISE = 1
+* + TARG v(out) VAL = 0.9 FALL = 1
+
+* .measure tran tfall
+* + TRIG v(a) VAL = 0.9 FALL = 1
+* + TARG v(out) VAL = 0.9 RISE = 1
+
+* .measure tran tpd param = '(trise + tfall)/2' goal = 0
+
+.control
+run
+plot v(a) v(abar)+2
+* plot  v(a) v(b)+2 v(out)+4
+.endc
+
+.end
+

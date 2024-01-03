@@ -1,0 +1,47 @@
+* SPICE3 file created from not.ext - technology: scmos
+* Inverter Circuit
+
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+.param width_P = 8*LAMBDA
+.param width_N = 4*LAMBDA
+.global gnd vdd
+.option scale=0.09u
+
+Vdd vdd gnd 1.8
+vin in gnd pulse 0 1.8 0ns 1ns 10ns 20ns 40ns
+
+M1000 out in vdd vdd CMOSP w=8 l=4
++  ad=101 pd=42 as=101 ps=42
+M1001 out in gnd Gnd CMOSN w=7 l=4
++  ad=84 pd=38 as=91 ps=40
+C0 vdd out 0.05fF
+C1 vdd vdd 0.21fF
+C2 vdd in 0.10fF
+C3 gnd in 0.03fF
+C4 vdd out 0.04fF
+C5 gnd Gnd 0.23fF
+C6 out Gnd 0.09fF
+C7 in Gnd 0.40fF
+C8 vdd Gnd 0.00fF
+C9 vdd Gnd 0.52fF
+
+.tran 0.1n 100n
+
+.measure tran trise
++ TRIG v(in) VAL = 0.9 RISE = 1
++ TARG v(out) VAL = 0.9 FALL = 1
+
+.measure tran tfall
++ TRIG v(in) VAL = 0.9 FALL = 1
++ TARG v(out) VAL = 0.9 RISE = 1
+
+.measure tran tpd param = '(trise + tfall)/2' goal = 0
+
+.control
+run
+plot v(out)+2 v(in)
+.endc
+
+.end

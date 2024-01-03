@@ -1,0 +1,11 @@
+.include "AND.sub"
+.include "NOT.sub"
+.subckt decoder node_a node_b node_out0 node_out1 node_out2 node_out3 vdd gnd
+X1 node_a node_c vdd gnd NOT
+X2 node_b node_d vdd gnd NOT
+
+X3 node_c node_d node_out0 vdd gnd AND
+X4 node_a node_d node_out1 vdd gnd AND
+X5 node_b node_c node_out2 vdd gnd AND
+X6 node_a node_b node_out3 vdd gnd AND
+.ends

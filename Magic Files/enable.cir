@@ -1,0 +1,278 @@
+* SPICE3 file created from enable.ext - technology: scmos
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+.param width_P = 8*LAMBDA
+.param width_N = 4*LAMBDA
+.global gnd vdd
+.option scale=0.09u
+
+Vdd vdd gnd 1.8
+ven en gnd pulse 0 1.8 0ns 1ns 10ns 20ns 40ns
+va0 a0 gnd pulse 0 1.8 0ns 1ns 10ns 40ns 60ns
+va1 a1 gnd pulse 0 1.8 0ns 1ns 10ns 60ns 80ns
+va2 a2 gnd pulse 0 1.8 0ns 1ns 10ns 80ns 100ns
+va3 a3 gnd pulse 0 1.8 0ns 1ns 10ns 100ns 120ns
+vb0 b0 gnd pulse 0 1.8 0ns 1ns 10ns 40ns 60ns
+vb1 b1 gnd pulse 0 1.8 0ns 1ns 10ns 60ns 80ns
+vb2 b2 gnd pulse 0 1.8 0ns 1ns 10ns 80ns 100ns
+vb3 b3 gnd pulse 0 1.8 0ns 1ns 10ns 100ns 120ns
+
+
+
+M1000 b1out and_5/a_n26_14# vdd and_5/vdd CMOSP w=7 l=4
++  ad=112 pd=46 as=1400 ps=736
+M1001 vdd b1 and_5/a_n26_14# and_5/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=63 ps=32
+M1002 b1out and_5/a_n26_14# gnd Gnd CMOSN w=9 l=4
++  ad=144 pd=50 as=1368 ps=592
+M1003 and_5/a_n26_14# en vdd and_5/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=0 ps=0
+M1004 and_5/a_n26_n23# en gnd Gnd CMOSN w=9 l=4
++  ad=81 pd=36 as=0 ps=0
+M1005 and_5/a_n26_14# b1 and_5/a_n26_n23# Gnd CMOSN w=9 l=4
++  ad=63 pd=32 as=0 ps=0
+M1006 b2out and_6/a_n26_14# vdd and_6/vdd CMOSP w=7 l=4
++  ad=112 pd=46 as=0 ps=0
+M1007 vdd b2 and_6/a_n26_14# and_6/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=63 ps=32
+M1008 b2out and_6/a_n26_14# gnd Gnd CMOSN w=9 l=4
++  ad=144 pd=50 as=0 ps=0
+M1009 and_6/a_n26_14# en vdd and_6/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=0 ps=0
+M1010 and_6/a_n26_n23# en gnd Gnd CMOSN w=9 l=4
++  ad=81 pd=36 as=0 ps=0
+M1011 and_6/a_n26_14# b2 and_6/a_n26_n23# Gnd CMOSN w=9 l=4
++  ad=63 pd=32 as=0 ps=0
+M1012 b3out and_7/a_n26_14# vdd and_7/vdd CMOSP w=7 l=4
++  ad=112 pd=46 as=0 ps=0
+M1013 vdd b3 and_7/a_n26_14# and_7/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=63 ps=32
+M1014 b3out and_7/a_n26_14# gnd Gnd CMOSN w=9 l=4
++  ad=144 pd=50 as=0 ps=0
+M1015 and_7/a_n26_14# en vdd and_7/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=0 ps=0
+M1016 and_7/a_n26_n23# en gnd Gnd CMOSN w=9 l=4
++  ad=81 pd=36 as=0 ps=0
+M1017 and_7/a_n26_14# b3 and_7/a_n26_n23# Gnd CMOSN w=9 l=4
++  ad=63 pd=32 as=0 ps=0
+M1018 a0out and_0/a_n26_14# vdd and_0/vdd CMOSP w=7 l=4
++  ad=112 pd=46 as=0 ps=0
+M1019 vdd a0 and_0/a_n26_14# and_0/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=63 ps=32
+M1020 a0out and_0/a_n26_14# gnd Gnd CMOSN w=9 l=4
++  ad=144 pd=50 as=0 ps=0
+M1021 and_0/a_n26_14# en vdd and_0/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=0 ps=0
+M1022 and_0/a_n26_n23# en gnd Gnd CMOSN w=9 l=4
++  ad=81 pd=36 as=0 ps=0
+M1023 and_0/a_n26_14# a0 and_0/a_n26_n23# Gnd CMOSN w=9 l=4
++  ad=63 pd=32 as=0 ps=0
+M1024 a1out and_1/a_n26_14# vdd and_1/vdd CMOSP w=7 l=4
++  ad=112 pd=46 as=0 ps=0
+M1025 vdd a1 and_1/a_n26_14# and_1/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=63 ps=32
+M1026 a1out and_1/a_n26_14# gnd Gnd CMOSN w=9 l=4
++  ad=144 pd=50 as=0 ps=0
+M1027 and_1/a_n26_14# en vdd and_1/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=0 ps=0
+M1028 and_1/a_n26_n23# en gnd Gnd CMOSN w=9 l=4
++  ad=81 pd=36 as=0 ps=0
+M1029 and_1/a_n26_14# a1 and_1/a_n26_n23# Gnd CMOSN w=9 l=4
++  ad=63 pd=32 as=0 ps=0
+M1030 a2out and_2/a_n26_14# vdd and_2/vdd CMOSP w=7 l=4
++  ad=112 pd=46 as=0 ps=0
+M1031 vdd a2 and_2/a_n26_14# and_2/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=63 ps=32
+M1032 a2out and_2/a_n26_14# gnd Gnd CMOSN w=9 l=4
++  ad=144 pd=50 as=0 ps=0
+M1033 and_2/a_n26_14# en vdd and_2/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=0 ps=0
+M1034 and_2/a_n26_n23# en gnd Gnd CMOSN w=9 l=4
++  ad=81 pd=36 as=0 ps=0
+M1035 and_2/a_n26_14# a2 and_2/a_n26_n23# Gnd CMOSN w=9 l=4
++  ad=63 pd=32 as=0 ps=0
+M1036 a3out and_3/a_n26_14# vdd and_3/vdd CMOSP w=7 l=4
++  ad=112 pd=46 as=0 ps=0
+M1037 vdd a3 and_3/a_n26_14# and_3/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=63 ps=32
+M1038 a3out and_3/a_n26_14# gnd Gnd CMOSN w=9 l=4
++  ad=144 pd=50 as=0 ps=0
+M1039 and_3/a_n26_14# en vdd and_3/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=0 ps=0
+M1040 and_3/a_n26_n23# en gnd Gnd CMOSN w=9 l=4
++  ad=81 pd=36 as=0 ps=0
+M1041 and_3/a_n26_14# a3 and_3/a_n26_n23# Gnd CMOSN w=9 l=4
++  ad=63 pd=32 as=0 ps=0
+M1042 b0out and_4/a_n26_14# vdd and_4/vdd CMOSP w=7 l=4
++  ad=112 pd=46 as=0 ps=0
+M1043 vdd b0 and_4/a_n26_14# and_4/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=63 ps=32
+M1044 b0out and_4/a_n26_14# gnd Gnd CMOSN w=9 l=4
++  ad=144 pd=50 as=0 ps=0
+M1045 and_4/a_n26_14# en vdd and_4/vdd CMOSP w=7 l=4
++  ad=0 pd=0 as=0 ps=0
+M1046 and_4/a_n26_n23# en gnd Gnd CMOSN w=9 l=4
++  ad=81 pd=36 as=0 ps=0
+M1047 and_4/a_n26_14# b0 and_4/a_n26_n23# Gnd CMOSN w=9 l=4
++  ad=63 pd=32 as=0 ps=0
+C0 and_5/vdd b1out 0.03fF
+C1 vdd a2 0.10fF
+C2 b2 and_6/vdd 0.09fF
+C3 en and_7/vdd 0.09fF
+C4 vdd and_7/vdd 0.03fF
+C5 and_6/vdd b2out 0.03fF
+C6 vdd en 0.68fF
+C7 and_2/a_n26_14# and_2/vdd 0.02fF
+C8 en a1 0.14fF
+C9 a1 and_1/a_n26_14# 0.31fF
+C10 vdd and_5/vdd 0.07fF
+C11 and_0/vdd en 0.09fF
+C12 and_0/vdd vdd 0.03fF
+C13 en a3 0.28fF
+C14 and_5/vdd and_5/a_n26_14# 0.02fF
+C15 and_4/vdd b0out 0.03fF
+C16 gnd b1out 0.01fF
+C17 a3 and_3/a_n26_14# 0.31fF
+C18 gnd b3 0.07fF
+C19 gnd b2 0.07fF
+C20 vdd a0 0.10fF
+C21 a2 and_2/a_n26_14# 0.31fF
+C22 and_0/vdd a0 0.09fF
+C23 and_3/vdd and_3/a_n26_14# 0.09fF
+C24 and_2/vdd a2out 0.03fF
+C25 gnd b0 0.07fF
+C26 and_4/vdd b0 0.09fF
+C27 en and_1/vdd 0.09fF
+C28 vdd and_1/vdd 0.03fF
+C29 gnd b1 0.07fF
+C30 and_1/vdd and_1/a_n26_14# 0.02fF
+C31 and_7/a_n26_14# and_7/vdd 0.02fF
+C32 and_6/a_n26_14# and_6/vdd 0.09fF
+C33 en b3 0.10fF
+C34 en and_6/vdd 0.09fF
+C35 vdd and_6/vdd 0.03fF
+C36 gnd a0out 0.01fF
+C37 gnd a1out 0.01fF
+C38 en b2 0.13fF
+C39 vdd and_7/vdd 0.07fF
+C40 a2 and_2/vdd 0.09fF
+C41 vdd a1 0.10fF
+C42 and_0/vdd vdd 0.07fF
+C43 en b0 0.13fF
+C44 en and_2/vdd 0.09fF
+C45 vdd and_2/vdd 0.03fF
+C46 en b1 0.13fF
+C47 vdd a3 0.10fF
+C48 and_5/vdd b1 0.09fF
+C49 gnd b0out 0.01fF
+C50 gnd a2 0.07fF
+C51 and_0/vdd a0out 0.03fF
+C52 a3out and_3/vdd 0.03fF
+C53 and_4/vdd en 0.09fF
+C54 and_4/vdd vdd 0.03fF
+C55 en and_3/vdd 0.09fF
+C56 vdd and_3/vdd 0.03fF
+C57 and_0/vdd and_0/a_n26_14# 0.09fF
+C58 and_4/vdd and_4/a_n26_14# 0.09fF
+C59 gnd b2out 0.01fF
+C60 b3 and_7/a_n26_14# 0.31fF
+C61 and_3/vdd and_3/a_n26_14# 0.02fF
+C62 vdd and_1/vdd 0.07fF
+C63 en a2 0.13fF
+C64 and_1/vdd a1 0.09fF
+C65 b3 and_7/vdd 0.09fF
+C66 and_6/a_n26_14# and_6/vdd 0.02fF
+C67 vdd and_6/vdd 0.07fF
+C68 b2 and_6/a_n26_14# 0.31fF
+C69 and_2/a_n26_14# and_2/vdd 0.09fF
+C70 vdd b2 0.10fF
+C71 a0 and_0/a_n26_14# 0.31fF
+C72 en and_5/vdd 0.09fF
+C73 vdd and_5/vdd 0.03fF
+C74 gnd a0 0.07fF
+C75 gnd a2out 0.01fF
+C76 and_1/vdd a1out 0.03fF
+C77 b3out gnd 0.01fF
+C78 vdd b0 0.08fF
+C79 and_5/vdd and_5/a_n26_14# 0.09fF
+C80 vdd and_2/vdd 0.07fF
+C81 vdd b1 0.08fF
+C82 b0 and_4/a_n26_14# 0.31fF
+C83 b1 and_5/a_n26_14# 0.31fF
+C84 gnd a3out 0.01fF
+C85 en a0 0.13fF
+C86 b3out and_7/vdd 0.03fF
+C87 and_4/vdd vdd 0.07fF
+C88 vdd and_3/vdd 0.07fF
+C89 gnd a1 0.07fF
+C90 and_0/vdd and_0/a_n26_14# 0.02fF
+C91 and_4/vdd and_4/a_n26_14# 0.02fF
+C92 and_1/vdd and_1/a_n26_14# 0.09fF
+C93 gnd a3 0.07fF
+C94 and_3/vdd a3 0.09fF
+C95 and_7/a_n26_14# and_7/vdd 0.09fF
+C96 b0out Gnd 0.20fF
+C97 and_4/a_n26_14# Gnd 0.05fF
+C98 b0 Gnd 0.40fF
+C99 and_4/vdd Gnd 0.82fF
+C100 and_4/vdd Gnd 0.82fF
+C101 a3out Gnd 0.20fF
+C102 and_3/a_n26_14# Gnd 0.05fF
+C103 a3 Gnd 0.41fF
+C104 and_3/vdd Gnd 0.82fF
+C105 and_3/vdd Gnd 0.82fF
+C106 a2out Gnd 0.20fF
+C107 and_2/a_n26_14# Gnd 0.05fF
+C108 a2 Gnd 0.41fF
+C109 and_2/vdd Gnd 0.82fF
+C110 and_2/vdd Gnd 0.82fF
+C111 a1out Gnd 0.20fF
+C112 and_1/a_n26_14# Gnd 0.05fF
+C113 a1 Gnd 0.41fF
+C114 and_1/vdd Gnd 0.82fF
+C115 and_1/vdd Gnd 0.82fF
+C116 a0out Gnd 0.07fF
+C117 and_0/a_n26_14# Gnd 0.05fF
+C118 a0 Gnd 0.35fF
+C119 and_0/vdd Gnd 0.82fF
+C120 and_0/vdd Gnd 0.82fF
+C121 gnd Gnd 3.85fF
+C122 b3out Gnd 0.20fF
+C123 and_7/a_n26_14# Gnd 0.05fF
+C124 b3 Gnd 0.40fF
+C125 en Gnd 2.03fF
+C126 vdd Gnd 3.52fF
+C127 and_7/vdd Gnd 0.82fF
+C128 and_7/vdd Gnd 0.82fF
+C129 b2out Gnd 0.20fF
+C130 and_6/a_n26_14# Gnd 0.05fF
+C131 b2 Gnd 0.40fF
+C132 and_6/vdd Gnd 0.82fF
+C133 and_6/vdd Gnd 0.82fF
+C134 b1out Gnd 0.20fF
+C135 and_5/a_n26_14# Gnd 0.05fF
+C136 b1 Gnd 0.40fF
+C137 and_5/vdd Gnd 0.82fF
+C138 and_5/vdd Gnd 0.82fF
+
+.tran 0.1n 500n
+
+* .measure tran trise
+* + TRIG v(a) VAL = 0.9 RISE = 1
+* + TARG v(out) VAL = 0.9 FALL = 1
+
+* .measure tran tfall
+* + TRIG v(a) VAL = 0.9 FALL = 1
+* + TARG v(out) VAL = 0.9 RISE = 1
+
+* .measure tran tpd param = '(trise + tfall)/2' goal = 0
+
+.control
+run
+plot  v(a0) v(a1)+2 v(a2)+4 v(a3)+6 v(en)+8
+plot  v(a0out) v(a1out)+2 v(a2out)+4 v(a3out)+6
+plot v(b0out) v(b1out)+2 v(b2out)+4 v(b3out)+6
+.endc
+
+.end

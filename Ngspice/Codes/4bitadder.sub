@@ -1,0 +1,16 @@
+.include "XOR.sub"
+.include "full_adder.sub"
+
+.subckt 4bitadder node_a0 node_a1 node_a2 node_a3 node_b0 node_b1 node_b2 node_b3 node_a node_C4_add node_S0_add node_S1_add node_S2_add node_S3_add vdd gnd
+
+X6 node_b0 node_a node_b0_final vdd gnd XOR
+X7 node_b1 node_a node_b1_final vdd gnd XOR
+X8 node_b2 node_a node_b2_final vdd gnd XOR
+X9 node_b3 node_a node_b3_final vdd gnd XOR
+
+X10 node_a0 node_b0_final node_a node_C1_add node_S0_add vdd gnd full_adder
+X11 node_a1 node_b1_final node_C1_add node_C2_add node_S1_add vdd gnd full_adder
+X12 node_a2 node_b2_final node_C2_add node_C3_add node_S2_add vdd gnd full_adder
+X13 node_a3 node_b3_final node_C3_add node_C4_add node_S3_add vdd gnd full_adder
+
+.ends 4bitadder

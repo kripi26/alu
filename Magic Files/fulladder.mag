@@ -1,0 +1,124 @@
+magic
+tech scmos
+timestamp 1700494352
+<< polysilicon >>
+rect -46 103 -13 107
+rect 230 89 263 94
+rect -39 41 39 45
+rect 235 33 314 38
+rect 195 -108 217 -102
+rect 195 -147 200 -116
+rect 227 -134 240 -130
+rect 236 -147 240 -134
+rect 195 -151 240 -147
+rect 393 -174 444 -166
+rect 160 -226 218 -221
+rect 175 -269 179 -239
+rect 228 -256 240 -253
+rect 237 -269 240 -256
+rect 175 -273 240 -269
+rect 386 -266 393 -234
+rect 463 -266 468 -232
+rect 386 -272 468 -266
+<< polycontact >>
+rect -56 103 -46 107
+rect 226 89 230 94
+rect -43 41 -39 45
+rect 229 33 235 38
+rect 190 -108 195 -102
+rect 195 -116 200 -112
+rect 388 -174 393 -166
+rect 154 -226 160 -221
+rect 175 -239 179 -233
+rect 386 -234 393 -226
+<< metal1 >>
+rect 13 188 495 196
+rect 13 145 19 188
+rect 288 187 495 188
+rect 288 139 294 187
+rect -164 103 -56 107
+rect -164 -233 -154 103
+rect 130 101 223 107
+rect -109 41 -43 45
+rect -109 -221 -100 41
+rect 12 25 17 31
+rect 167 -102 174 101
+rect 217 94 223 101
+rect 405 97 461 104
+rect 217 89 226 94
+rect 183 33 229 38
+rect 305 19 310 25
+rect 485 -49 495 187
+rect 251 -58 331 -49
+rect 337 -58 495 -49
+rect 251 -75 258 -58
+rect 167 -108 190 -102
+rect 303 -108 393 -101
+rect 485 -106 495 -58
+rect 183 -116 195 -112
+rect 120 -143 212 -136
+rect 388 -166 393 -108
+rect 584 -183 611 -177
+rect -109 -226 154 -221
+rect -164 -239 175 -233
+rect 304 -234 386 -226
+rect 120 -265 213 -257
+rect 417 -292 425 -251
+<< m2contact >>
+rect 12 20 17 25
+rect 178 33 183 38
+rect 305 14 310 19
+rect 331 -58 337 -49
+rect 178 -116 183 -111
+rect 112 -143 120 -136
+rect 252 -197 258 -191
+rect 112 -265 120 -257
+rect 417 -302 425 -292
+<< metal2 >>
+rect 12 -12 17 20
+rect 112 -136 120 -18
+rect 178 -111 183 33
+rect 305 -12 310 14
+rect 112 -257 120 -143
+rect 331 -173 337 -58
+rect 252 -181 337 -173
+rect 252 -191 258 -181
+rect 112 -292 120 -265
+rect 112 -302 417 -292
+<< m3contact >>
+rect 12 -18 17 -12
+rect 112 -18 120 -12
+rect 305 -18 310 -12
+<< metal3 >>
+rect 17 -18 112 -12
+rect 120 -18 305 -12
+use XOR  XOR_0
+timestamp 1699220400
+transform 1 0 25 0 1 100
+box -56 -86 137 64
+use XOR  XOR_1
+timestamp 1699220400
+transform 1 0 300 0 1 94
+box -56 -86 137 64
+use and  and_0
+timestamp 1699973769
+transform 1 0 244 0 1 -105
+box -43 -38 74 36
+use and  and_1
+timestamp 1699973769
+transform 1 0 245 0 1 -227
+box -43 -38 74 36
+use or  or_0
+timestamp 1700455425
+transform 1 0 459 0 1 -258
+box -48 0 125 161
+<< labels >>
+rlabel metal1 -54 42 -53 43 1 b
+rlabel metal1 204 34 206 36 1 c
+rlabel metal1 606 -181 609 -179 7 carry
+rlabel metal1 118 190 120 192 5 vdd
+rlabel metal2 305 -300 308 -297 1 gnd
+rlabel metal1 170 71 172 72 1 axorb
+rlabel metal1 452 99 453 100 1 axorbxorc
+rlabel metal1 -80 104 -79 105 1 a
+<< end >>

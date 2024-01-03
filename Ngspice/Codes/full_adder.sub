@@ -1,0 +1,11 @@
+.include "XOR.sub"
+.include "AND.sub"
+.include "OR.sub"
+.subckt full_adder node_a node_b node_c node_outC node_outS vdd gnd
+X1 node_a node_b node_d vdd gnd XOR
+X2 node_c node_d node_outS vdd gnd XOR
+
+X3 node_d node_c node_e vdd gnd AND
+X4 node_a node_b node_f vdd gnd AND
+X5 node_e node_f node_outC vdd gnd OR
+.ends full_adder

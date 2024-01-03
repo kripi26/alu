@@ -1,0 +1,202 @@
+* SPICE3 file created from fulladder.ext - technology: scmos
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+.param width_P = 8*LAMBDA
+.param width_N = 4*LAMBDA
+.global gnd vdd
+
+
+Vdd vdd gnd 1.8
+va a gnd pulse 0 1.8 0ns 100ps 100ps 50ns 120ns
+vb b gnd pulse 0 1.8 0ns 100ps 100ps 60ns 100ns
+vc c gnd pulse 0 1.8 0ns 100ps 100ps 100ns 140ns
+.option scale=0.09u
+
+M1000 or_0/a_n15_32# or_0/a gnd Gnd CMOSN w=16 l=5
++  ad=304 pd=70 as=3086 ps=706
+M1001 carry or_0/a_n15_32# vdd or_0/w_58_101# CMOSP w=16 l=6
++  ad=288 pd=68 as=1206 ps=450
+M1002 gnd or_0/b or_0/a_n15_32# Gnd CMOSN w=16 l=5
++  ad=0 pd=0 as=0 ps=0
+M1003 or_0/a_n15_32# or_0/b or_0/a_n15_107# or_0/w_n48_101# CMOSP w=16 l=5
++  ad=448 pd=88 as=304 ps=70
+M1004 carry or_0/a_n15_32# gnd Gnd CMOSN w=16 l=6
++  ad=320 pd=72 as=0 ps=0
+M1005 or_0/a_n15_107# or_0/a vdd or_0/w_n48_101# CMOSP w=16 l=5
++  ad=0 pd=0 as=0 ps=0
+M1006 or_0/a and_0/a_n26_14# vdd and_0/w_26_9# CMOSP w=7 l=4
++  ad=112 pd=46 as=0 ps=0
+M1007 vdd c and_0/a_n26_14# and_0/w_n43_8# CMOSP w=7 l=4
++  ad=0 pd=0 as=63 ps=32
+M1008 or_0/a and_0/a_n26_14# gnd Gnd CMOSN w=9 l=4
++  ad=144 pd=50 as=0 ps=0
+M1009 and_0/a_n26_14# axorb vdd and_0/w_n43_8# CMOSP w=7 l=4
++  ad=0 pd=0 as=0 ps=0
+M1010 and_0/a_n26_n23# axorb gnd Gnd CMOSN w=9 l=4
++  ad=81 pd=36 as=0 ps=0
+M1011 and_0/a_n26_14# c and_0/a_n26_n23# Gnd CMOSN w=9 l=4
++  ad=63 pd=32 as=0 ps=0
+M1012 or_0/b and_1/a_n26_14# vdd and_1/w_26_9# CMOSP w=7 l=4
++  ad=112 pd=46 as=0 ps=0
+M1013 vdd a and_1/a_n26_14# and_1/w_n43_8# CMOSP w=7 l=4
++  ad=0 pd=0 as=63 ps=32
+M1014 or_0/b and_1/a_n26_14# gnd Gnd CMOSN w=9 l=4
++  ad=144 pd=50 as=0 ps=0
+M1015 and_1/a_n26_14# b vdd and_1/w_n43_8# CMOSP w=7 l=4
++  ad=0 pd=0 as=0 ps=0
+M1016 and_1/a_n26_n23# b gnd Gnd CMOSN w=9 l=4
++  ad=81 pd=36 as=0 ps=0
+M1017 and_1/a_n26_14# a and_1/a_n26_n23# Gnd CMOSN w=9 l=4
++  ad=63 pd=32 as=0 ps=0
+M1018 axorb b XOR_0/abar Gnd CMOSN w=11 l=6
++  ad=495 pd=156 as=407 ps=118
+M1019 XOR_0/bbar b gnd Gnd CMOSN w=22 l=4
++  ad=242 pd=66 as=0 ps=0
+M1020 axorb XOR_0/bbar XOR_0/abar XOR_0/w_62_n20# CMOSP w=12 l=6
++  ad=252 pd=110 as=218 ps=84
+M1021 vdd b XOR_0/bbar XOR_0/w_16_n1# CMOSP w=10 l=4
++  ad=0 pd=0 as=110 ps=42
+M1022 axorb b a XOR_0/w_62_37# CMOSP w=8 l=6
++  ad=0 pd=0 as=72 ps=34
+M1023 XOR_0/abar a gnd Gnd CMOSN w=22 l=4
++  ad=0 pd=0 as=0 ps=0
+M1024 vdd a XOR_0/abar XOR_0/w_n34_n1# CMOSP w=10 l=4
++  ad=0 pd=0 as=0 ps=0
+M1025 axorb XOR_0/bbar a Gnd CMOSN w=11 l=6
++  ad=0 pd=0 as=165 ps=52
+M1026 axorbxorc c XOR_1/abar Gnd CMOSN w=11 l=6
++  ad=330 pd=104 as=407 ps=118
+M1027 XOR_1/bbar c gnd Gnd CMOSN w=22 l=4
++  ad=242 pd=66 as=0 ps=0
+M1028 axorbxorc XOR_1/bbar XOR_1/abar XOR_1/w_62_n20# CMOSP w=12 l=6
++  ad=180 pd=76 as=218 ps=84
+M1029 vdd c XOR_1/bbar XOR_1/w_16_n1# CMOSP w=10 l=4
++  ad=0 pd=0 as=110 ps=42
+M1030 axorbxorc c axorb XOR_1/w_62_37# CMOSP w=8 l=6
++  ad=0 pd=0 as=0 ps=0
+M1031 XOR_1/abar axorb gnd Gnd CMOSN w=22 l=4
++  ad=0 pd=0 as=0 ps=0
+M1032 vdd axorb XOR_1/abar XOR_1/w_n34_n1# CMOSP w=10 l=4
++  ad=0 pd=0 as=0 ps=0
+M1033 axorbxorc XOR_1/bbar axorb Gnd CMOSN w=11 l=6
++  ad=0 pd=0 as=0 ps=0
+C0 axorb XOR_1/abar 0.13fF
+C1 or_0/b or_0/a_n15_32# 0.19fF
+C2 or_0/b gnd 0.37fF
+C3 or_0/a_n15_32# or_0/w_58_101# 0.13fF
+C4 b axorb 0.13fF
+C5 and_0/a_n26_14# and_0/w_n43_8# 0.02fF
+C6 axorbxorc c 0.04fF
+C7 b and_1/w_n43_8# 0.09fF
+C8 and_1/a_n26_14# a 0.10fF
+C9 XOR_1/abar XOR_1/w_62_n20# 0.02fF
+C10 or_0/a_n15_32# or_0/w_n48_101# 0.05fF
+C11 XOR_0/w_n34_n1# XOR_0/abar 0.03fF
+C12 XOR_0/w_62_n20# XOR_0/bbar 0.13fF
+C13 b XOR_0/w_62_37# 0.13fF
+C14 XOR_0/w_62_n20# XOR_0/abar 0.02fF
+C15 or_0/a gnd 0.01fF
+C16 and_1/a_n26_14# and_1/w_n43_8# 0.02fF
+C17 XOR_1/abar XOR_1/w_n34_n1# 0.03fF
+C18 and_0/w_26_9# vdd 0.03fF
+C19 a and_1/w_n43_8# 0.09fF
+C20 gnd c 0.71fF
+C21 XOR_1/abar c 0.27fF
+C22 axorb and_0/w_n43_8# 0.09fF
+C23 XOR_1/w_16_n1# XOR_1/bbar 0.03fF
+C24 a XOR_0/w_62_37# 0.02fF
+C25 a vdd 0.15fF
+C26 and_0/w_26_9# or_0/a 0.03fF
+C27 XOR_0/w_16_n1# XOR_0/bbar 0.03fF
+C28 axorb XOR_1/w_62_37# 0.02fF
+C29 and_1/a_n26_14# and_1/w_26_9# 0.09fF
+C30 and_0/a_n26_14# c 0.10fF
+C31 a XOR_0/w_n34_n1# 0.11fF
+C32 XOR_1/w_62_n20# XOR_1/bbar 0.13fF
+C33 and_0/w_n43_8# vdd 0.07fF
+C34 b XOR_0/w_16_n1# 0.11fF
+C35 axorb XOR_0/w_62_37# 0.02fF
+C36 axorb vdd 0.15fF
+C37 or_0/w_58_101# carry 0.02fF
+C38 and_1/w_n43_8# vdd 0.07fF
+C39 XOR_1/abar gnd 0.15fF
+C40 axorb XOR_0/w_62_n20# 0.04fF
+C41 XOR_0/abar gnd 0.15fF
+C42 XOR_1/w_16_n1# vdd 0.02fF
+C43 XOR_1/bbar c 0.02fF
+C44 or_0/w_58_101# vdd 0.05fF
+C45 or_0/b and_1/w_26_9# 0.03fF
+C46 or_0/b or_0/w_n48_101# 0.12fF
+C47 b gnd 0.42fF
+C48 axorb XOR_1/w_n34_n1# 0.11fF
+C49 and_0/w_n43_8# c 0.09fF
+C50 b XOR_0/bbar 0.02fF
+C51 b XOR_0/abar 0.25fF
+C52 XOR_0/w_n34_n1# vdd 0.02fF
+C53 axorb c 0.39fF
+C54 and_1/w_26_9# vdd 0.03fF
+C55 or_0/w_n48_101# vdd 0.05fF
+C56 or_0/a vdd 0.14fF
+C57 XOR_1/w_62_37# c 0.13fF
+C58 XOR_1/w_16_n1# c 0.11fF
+C59 XOR_1/w_n34_n1# vdd 0.02fF
+C60 XOR_1/w_62_37# axorbxorc 0.02fF
+C61 a gnd 0.45fF
+C62 or_0/a or_0/w_n48_101# 0.12fF
+C63 and_0/w_26_9# and_0/a_n26_14# 0.09fF
+C64 a XOR_0/abar 0.13fF
+C65 axorbxorc XOR_1/w_62_n20# 0.04fF
+C66 XOR_0/w_16_n1# vdd 0.02fF
+C67 axorb gnd 0.09fF
+C68 b a 1.60fF
+C69 XOR_1/abar Gnd 0.11fF
+C70 XOR_1/bbar Gnd 0.06fF
+C71 axorbxorc Gnd 0.16fF
+C72 XOR_1/w_62_n20# Gnd 0.87fF
+C73 XOR_1/w_16_n1# Gnd 0.75fF
+C74 XOR_1/w_n34_n1# Gnd 0.75fF
+C75 XOR_1/w_62_37# Gnd 0.72fF
+C76 XOR_0/abar Gnd 0.11fF
+C77 XOR_0/bbar Gnd 0.06fF
+C78 XOR_0/w_62_n20# Gnd 0.87fF
+C79 XOR_0/w_16_n1# Gnd 0.75fF
+C80 XOR_0/w_n34_n1# Gnd 0.75fF
+C81 XOR_0/w_62_37# Gnd 0.72fF
+C82 gnd Gnd 2.59fF
+C83 or_0/b Gnd 2.26fF
+C84 and_1/a_n26_14# Gnd 0.05fF
+C85 a Gnd 7.21fF
+C86 b Gnd 1.61fF
+C87 vdd Gnd 2.07fF
+C88 and_1/w_26_9# Gnd 0.82fF
+C89 and_1/w_n43_8# Gnd 0.82fF
+C90 or_0/a Gnd 1.96fF
+C91 and_0/a_n26_14# Gnd 0.05fF
+C92 c Gnd 1.67fF
+C93 axorb Gnd 3.25fF
+C94 and_0/w_26_9# Gnd 0.82fF
+C95 and_0/w_n43_8# Gnd 0.82fF
+C96 carry Gnd 0.40fF
+C97 or_0/a_n15_32# Gnd 0.17fF
+C98 or_0/w_58_101# Gnd 1.55fF
+C99 or_0/w_n48_101# Gnd 2.56fF
+
+.tran 0.1n 500n
+
+* .measure tran trise
+* + TRIG v(a) VAL = 0.9 RISE = 1
+* + TARG v(out) VAL = 0.9 FALL = 1
+
+* .measure tran tfall
+* + TRIG v(a) VAL = 0.9 FALL = 1
+* + TARG v(out) VAL = 0.9 RISE = 1
+
+* .measure tran tpd param = '(trise + tfall)/2' goal = 0
+
+.control
+run
+plot  v(a) v(b)+2 v(c)+4 v(axorbxorc)+6 v(carry)+8 
+.endc
+
+.end

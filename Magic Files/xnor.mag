@@ -1,0 +1,39 @@
+magic
+tech scmos
+timestamp 1700470836
+<< polysilicon >>
+rect -54 80 -8 87
+rect -49 19 42 26
+<< metal1 >>
+rect 36 160 230 168
+rect 36 126 39 160
+rect 225 108 230 160
+rect 225 103 238 108
+rect 135 83 223 89
+rect 219 78 223 83
+rect 219 73 230 78
+rect 273 74 299 77
+rect 207 45 237 51
+rect 32 7 37 12
+<< m2contact >>
+rect 201 45 207 51
+rect 32 2 37 7
+<< metal2 >>
+rect 32 -15 37 2
+rect 201 -15 207 45
+rect 32 -20 207 -15
+use not  not_0
+timestamp 1698771081
+transform 1 0 237 0 1 73
+box -7 -28 41 38
+use XOR  XOR_0
+timestamp 1699220400
+transform 1 0 29 0 1 81
+box -56 -86 137 64
+<< labels >>
+rlabel polysilicon -35 82 -33 85 1 a
+rlabel polysilicon -43 21 -41 23 1 b
+rlabel metal1 296 76 296 76 7 y
+rlabel metal1 122 163 123 164 5 vdd
+rlabel metal2 121 -19 122 -18 1 gnd
+<< end >>

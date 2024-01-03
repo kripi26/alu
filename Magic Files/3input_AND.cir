@@ -1,0 +1,55 @@
+* SPICE3 file created from 3input_AND.ext - technology: scmos
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+.param width_P = 8*LAMBDA
+.param width_N = 4*LAMBDA
+.global gnd vdd
+
+Vdd vdd gnd 1.8
+va a gnd pulse 0 1.8 0ns 100ps 100ps 20ns 40ns
+vb b gnd pulse 0 1.8 0ns 100ps 100ps 60ns 80ns
+vc c gnd pulse 0 1.8 0ns 100ps 100ps 80ns 100ns
+
+.option scale=0.09u
+
+M1000 y not_0/in vdd not_0/vdd CMOSP w=8 l=4
++  ad=101 pd=42 as=452 ps=174
+M1001 y not_0/in gnd Gnd CMOSN w=7 l=4
++  ad=84 pd=38 as=256 ps=92
+M1002 a_n9_n125# a gnd Gnd CMOSN w=15 l=8
++  ad=135 pd=48 as=0 ps=0
+M1003 not_0/in c a_n9_n108# Gnd CMOSN w=15 l=8
++  ad=165 pd=52 as=165 ps=52
+M1004 vdd c not_0/in vdd CMOSP w=13 l=8
++  ad=0 pd=0 as=546 ps=162
+M1005 vdd b not_0/in vdd CMOSP w=13 l=8
++  ad=0 pd=0 as=0 ps=0
+M1006 vdd a not_0/in vdd CMOSP w=13 l=8
++  ad=0 pd=0 as=0 ps=0
+M1007 a_n9_n108# b a_n9_n125# Gnd CMOSN w=15 l=8
++  ad=0 pd=0 as=0 ps=0
+C0 b Gnd 3.45fF
+C1 a Gnd 4.30fF
+
+.tran 0.1n 500n
+
+* .measure tran trise
+* + TRIG v(b) VAL = 0.9 RISE = 1
+* + TARG v(not_0/out) VAL = 0.9 FALL = 1
+
+* .measure tran tfall
+* + TRIG v(b) VAL = 0.9 FALL = 1
+* + TARG v(not_0/out) VAL = 0.9 RISE = 1
+
+* .measure tran tpd param = '(trise + tfall)/2' goal = 0
+
+.control
+run
+plot  v(a) v(b)+2 v(c)+4 v(y)+6
+.endc
+
+.end
+
+
+

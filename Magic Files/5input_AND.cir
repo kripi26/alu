@@ -1,0 +1,65 @@
+* SPICE3 file created from 5input_AND.ext - technology: scmos
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+.param width_P = 8*LAMBDA
+.param width_N = 4*LAMBDA
+.global gnd vdd
+
+Vdd vdd gnd 1.8
+va a gnd pulse 0 1.8 0ns 100ps 100ps 20ns 40ns
+vb b gnd pulse 0 1.8 0ns 100ps 100ps 60ns 80ns
+vc c gnd pulse 0 1.8 0ns 100ps 100ps 80ns 100ns
+vd d gnd pulse 0 1.8 0ns 100ps 100ps 100ns 120ns
+ve e gnd pulse 0 1.8 0ns 100ps 100ps 120ns 140ns
+
+.option scale=0.09u
+
+M1000 y not_0/in vdd not_0/vdd CMOSP w=8 l=4
++  ad=101 pd=42 as=493 ps=238
+M1001 y not_0/in gnd Gnd CMOSN w=7 l=4
++  ad=84 pd=38 as=415 ps=130
+M1002 vdd a not_0/in vdd CMOSP w=14 l=8
++  ad=0 pd=0 as=405 ps=198
+M1003 vdd c not_0/in vdd CMOSP w=15 l=8
++  ad=0 pd=0 as=0 ps=0
+M1004 a_n33_n203# b a_n33_n226# Gnd CMOSN w=36 l=12
++  ad=468 pd=98 as=396 ps=94
+M1005 not_0/in e a_n33_n154# Gnd CMOSN w=36 l=12
++  ad=540 pd=102 as=432 ps=96
+M1006 vdd e not_0/in vdd CMOSP w=13 l=8
++  ad=0 pd=0 as=0 ps=0
+M1007 a_n33_n154# d a_n33_n178# Gnd CMOSN w=36 l=12
++  ad=0 pd=0 as=432 ps=96
+M1008 a_n33_n178# c a_n33_n203# Gnd CMOSN w=36 l=12
++  ad=0 pd=0 as=0 ps=0
+M1009 a_n33_n226# a gnd Gnd CMOSN w=36 l=12
++  ad=0 pd=0 as=0 ps=0
+M1010 vdd b not_0/in vdd CMOSP w=13 l=8
++  ad=0 pd=0 as=0 ps=0
+M1011 vdd d not_0/in vdd CMOSP w=14 l=8
++  ad=0 pd=0 as=0 ps=0
+C0 c Gnd 5.56fF
+C1 b Gnd 5.91fF
+C2 a Gnd 7.23fF
+
+.tran 0.1n 500n
+
+* .measure tran trise
+* + TRIG v(b) VAL = 0.9 RISE = 1
+* + TARG v(not_0/out) VAL = 0.9 FALL = 1
+
+* .measure tran tfall
+* + TRIG v(b) VAL = 0.9 FALL = 1
+* + TARG v(not_0/out) VAL = 0.9 RISE = 1
+
+* .measure tran tpd param = '(trise + tfall)/2' goal = 0
+
+.control
+run
+plot  v(a) v(b)+2 v(c)+4 v(d)+6 v(e)+8 v(y)+10
+.endc
+
+.end
+
+
